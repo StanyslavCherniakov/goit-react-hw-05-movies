@@ -13,13 +13,13 @@ const Reviews = () => {
     return null;
   }
   return (
-    reviewsInfo.length > 0 ? (<div>
-      {reviewsInfo.map(({ author, content }) => (
-        <div>
+    reviewsInfo.length > 0 ? (<ul>
+      {reviewsInfo.map(({ author, content }, idx) => (
+        <li key={idx}>
           <p>{author}</p>
           <p>{content}</p>
-        </div>))}
-    </div>) : <p>There is no reviews for this Film:(</p>
+        </li>))}
+    </ul>) : <p>There is no reviews for this Film:(</p>
   );
 };
 

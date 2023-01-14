@@ -10,6 +10,16 @@ const FilmsList = ({ films }) => {
   );
 };
 
-FilmsList.propTypes = {};
+FilmsList.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape(
+    {
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+      name: PropTypes.string,
+    },
+  )),
+};
 
 export default FilmsList;
+
+

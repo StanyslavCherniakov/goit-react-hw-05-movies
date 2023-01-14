@@ -14,15 +14,19 @@ const Cast = () => {
   }
 
   return (
-    <div>
-      {castInfo.map(({ profile_path, name, character }) => (
-        <div>
+    <ul>
+      {castInfo.map(({
+                       profile_path = 'https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png',
+                       name,
+                       character,
+                     }, idx) => (
+        <li key={idx}>
           <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt='' />
           <p>{name}</p>
           <p>{character}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
