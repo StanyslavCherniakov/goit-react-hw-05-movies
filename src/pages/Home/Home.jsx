@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { List, ListItem } from '../../components/FilmsList/FilmList.styled';
 
 const Home = () => {
   const [trendingFilms, setTrendingFilms] = useState([]);
@@ -9,10 +10,10 @@ const Home = () => {
   }, []);
 
   return (
-    <ul>
-      {trendingFilms.map(film => <li key={film.id}><Link to={`movies/${film.id}`}>{film.title ?? film.name}</Link>
-      </li>)}
-    </ul>
+    <List>
+      {trendingFilms.map(film => <ListItem key={film.id}><Link to={`movies/${film.id}`}>{film.title ?? film.name}</Link>
+      </ListItem>)}
+    </List>
   );
 };
 

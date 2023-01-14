@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { List, ListItem } from './FilmList.styled';
 
 const FilmsList = ({ films }) => {
   return (
-    <ul>
-      {films.map(film => <li key={film.id}><Link to={`${film.id}`}>{film.title ?? film.name}</Link></li>)}
-    </ul>
+    <List>
+      {films.map(film => <ListItem key={film.id}><Link to={`${film.id}`}>{film.title ?? film.name}</Link></ListItem>)}
+    </List>
   );
 };
 

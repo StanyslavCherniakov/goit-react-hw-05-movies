@@ -1,13 +1,14 @@
 import React from 'react';
-
 import { NavLink } from 'react-router-dom';
+import MenuItem from './Header.styled';
+import Box from '../Box';
 
 const Header = () => {
   return (
-    <div>
-      <NavLink to='/home'>Home </NavLink>
-      <NavLink to='/movies'>Movies </NavLink>
-    </div>
+    <Box display='flex' justifyContent='space-evenly' pb='5px' borderBottom='1px solid gray'>
+      <MenuItem to='/'>Home</MenuItem>
+      <MenuItem to='/movies'>Movies</MenuItem>
+    </Box>
   );
 };
 
