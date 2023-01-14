@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Home = props => {
+const Home = () => {
   const [trendingFilms, setTrendingFilms] = useState([]);
 
   useEffect(() => {
@@ -16,7 +15,5 @@ const Home = props => {
     </ul>
   );
 };
-
-Home.propTypes = {};
 
 export default Home;

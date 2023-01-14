@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { NavLink } from 'react-router-dom';
 
-const Header = props => {
+const Header = () => {
   return (
     <div>
       <NavLink to='/home'>Home </NavLink>
@@ -10,7 +10,5 @@ const Header = props => {
     </div>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;

@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Suspense } from 'react';
 import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
 
-const Layout = props => {
+const Layout = () => {
   return (
     <div>
       <Header />
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
-
-Layout.propTypes = {};
 
 export default Layout;

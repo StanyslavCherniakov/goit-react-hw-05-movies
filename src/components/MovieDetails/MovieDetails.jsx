@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link, Outlet, useParams } from 'react-router-dom';
 
-const MovieDetails = props => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
 
@@ -34,7 +33,5 @@ const MovieDetails = props => {
     </div>
   );
 };
-
-MovieDetails.propTypes = {};
 
 export default MovieDetails;

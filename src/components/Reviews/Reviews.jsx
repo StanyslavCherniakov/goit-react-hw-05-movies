@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
-const Reviews = props => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviewsInfo, setReviewsInfo] = useState(null);
 
@@ -23,7 +22,5 @@ const Reviews = props => {
     </div>) : <p>There is no reviews for this Film:(</p>
   );
 };
-
-Reviews.propTypes = {};
 
 export default Reviews;

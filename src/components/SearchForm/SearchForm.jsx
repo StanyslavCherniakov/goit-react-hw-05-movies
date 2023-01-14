@@ -10,6 +10,8 @@ const SearchForm = ({ onSubmit }) => {
   );
 };
 
-SearchForm.propTypes = {};
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default SearchForm;
