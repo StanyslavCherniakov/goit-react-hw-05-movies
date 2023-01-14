@@ -10,9 +10,10 @@ const Home = props => {
   }, []);
 
   return (
-    <div>
-      {trendingFilms.map(film => <li key={film.id}><Link to=':filmId'>{film.title ?? film.name}</Link></li>)}
-    </div>
+    <ul>
+      {trendingFilms.map(film => <li key={film.id}><Link to={`movies/${film.id}`}>{film.title ?? film.name}</Link>
+      </li>)}
+    </ul>
   );
 };
 
