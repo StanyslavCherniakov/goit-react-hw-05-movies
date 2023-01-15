@@ -7,9 +7,9 @@ import { useSearchParams } from 'react-router-dom';
 const Movies = () => {
   const [filmsBySearch, setFilmsBySearch] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
 
   useEffect(() => {
-    const searchQuery = searchParams.get('query');
     if (!searchQuery) {
       return;
     }
@@ -17,7 +17,7 @@ const Movies = () => {
       const res = await fetchFilmsBySearch(searchQuery);
       setFilmsBySearch(res.data.results);
     })();
-  }, [searchParams]);
+  }, [searchQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const Movies = () => {
   return (
     <div>
       <SearchForm onSubmit={handleSubmit} />
-      {filmsBySearch.length > 0 ? <FilmsList films={filmsBySearch} /> : null}
+      {filmsBySearch.length > 0 ? <FilmsList films={filmsBySearch} query={searchQuery} /> : null}
     </div>
   );
 };

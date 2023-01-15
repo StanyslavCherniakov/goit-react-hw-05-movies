@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { List, ListItem } from './FilmList.styled';
 
-const FilmsList = ({ films }) => {
+const FilmsList = ({ films, query }) => {
   return (
     <List>
       {films.map(film => <ListItem key={film.id}><Link to={`${film.id}`}
-                                                       state={{ from: '/movies' }}>{film.title ?? film.name}</Link></ListItem>)}
+                                                       state={{ from: `/movies?query=${query}` }}>{film.title ?? film.name}</Link></ListItem>)}
     </List>
   );
 };
@@ -20,6 +20,7 @@ FilmsList.propTypes = {
       name: PropTypes.string,
     },
   )),
+  query: PropTypes.string.isRequired,
 };
 
 export default FilmsList;

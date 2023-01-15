@@ -9,11 +9,15 @@ const MenuItem = styled(NavLink)`
   width: 60px;
   height: 30px;
 
-  background-color: #ecc952;
+  background-color: slategray;
   border-radius: 10px;
 
   &.active {
-    background-color: #ec8755;
+    background-color: coral;
+  }
+
+  :hover:not(.active) {
+    background-color: deepskyblue;
   }
 `;
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviewsByFilm } from '../../api-servises';
+import { AuthorName, ListItem } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -19,10 +20,10 @@ const Reviews = () => {
   return (
     reviewsInfo.length > 0 ? (<ul>
       {reviewsInfo.map(({ author, content }, idx) => (
-        <li key={idx}>
-          <p>{author}</p>
+        <ListItem key={idx}>
+          <AuthorName>{author}</AuthorName>
           <p>{content}</p>
-        </li>))}
+        </ListItem>))}
     </ul>) : <p>There is no reviews for this Film:(</p>
   );
 };
