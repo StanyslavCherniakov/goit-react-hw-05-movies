@@ -11,7 +11,8 @@ const Home = () => {
 
   return (
     <List>
-      {trendingFilms.map(film => <ListItem key={film.id}><Link to={`movies/${film.id}`}>{film.title ?? film.name}</Link>
+      {trendingFilms.map(film => <ListItem key={film.id}><Link to={`movies/${film.id}`}
+                                                               state={{ from: '/' }}>{film.title ?? film.name}</Link>
       </ListItem>)}
     </List>
   );

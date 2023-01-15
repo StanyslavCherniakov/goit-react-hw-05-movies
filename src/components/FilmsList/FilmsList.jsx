@@ -6,7 +6,8 @@ import { List, ListItem } from './FilmList.styled';
 const FilmsList = ({ films }) => {
   return (
     <List>
-      {films.map(film => <ListItem key={film.id}><Link to={`${film.id}`}>{film.title ?? film.name}</Link></ListItem>)}
+      {films.map(film => <ListItem key={film.id}><Link to={`${film.id}`}
+                                                       state={{ from: '/movies' }}>{film.title ?? film.name}</Link></ListItem>)}
     </List>
   );
 };
