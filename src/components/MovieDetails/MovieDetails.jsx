@@ -18,7 +18,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <Link to={location.state.from}>Back</Link>
+      <Link to='/'>Back</Link>
       <div>
         <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt='' />
         <p>{title}</p>

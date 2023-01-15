@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { fetchCastByFilm } from '../../api-servises';
 
 const Cast = () => {
   const { movieId } = useParams();
   const [castInfo, setCastInfo] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=8fd7ea3a669b814effbf3238ac2d6fc5&language=en-US`).then(res => res.json()).then(res => setCastInfo(res.cast));
+    (async function getCastByFilm() {
+      const res = await fetchCastByFilm(movieId);
+      setCastInfo(res.data.cast);
+    })();
   }, [movieId]);
 
   if (!castInfo) {

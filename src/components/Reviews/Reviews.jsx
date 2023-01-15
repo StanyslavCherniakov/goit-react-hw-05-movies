@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { fetchReviewsByFilm } from '../../api-servises';
 
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviewsInfo, setReviewsInfo] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=8fd7ea3a669b814effbf3238ac2d6fc5&language=en-US&page=1`).then(res => res.json()).then(res => setReviewsInfo(res.results));
+    (async function getReviewsByFilm() {
+      const res = await fetchReviewsByFilm(movieId);
+      setReviewsInfo(res.data.results);
+    })();
   }, [movieId]);
 
   if (!reviewsInfo) {

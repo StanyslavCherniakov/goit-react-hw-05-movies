@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import FilmsList from '../../components/FilmsList/FilmsList';
+import { fetchFilmsBySearch } from '../../api-servises';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const [filmName, setFilmName] = useState('');
   const [filmsBySearch, setFilmsBySearch] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    if (filmName === '') {
+    const searchQuery = searchParams.get('query');
+    if (!searchQuery) {
       return;
     }
-
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=8fd7ea3a669b814effbf3238ac2d6fc5&query=${filmName}&language=en-US&page=1&include_adult=false`).then(res => res.json()).then(res => setFilmsBySearch(res.results));
-  }, [filmName]);
+    (async function getFilmsBySearch() {
+      const res = await fetchFilmsBySearch(searchQuery);
+      setFilmsBySearch(res.data.results);
+    })();
+  }, [searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFilmName(e.target.elements.search.value);
+    const value = e.target.elements.search.value;
+    setSearchParams({ query: value });
     e.target.reset();
   };
 
