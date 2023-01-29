@@ -19,7 +19,7 @@ const Cast = () => {
   }
 
   return (
-    <List>
+    castInfo ? <List>
       {castInfo.map(({
                        profile_path = 'https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png',
                        name,
@@ -31,7 +31,7 @@ const Cast = () => {
           <p>Character: {character}</p>
         </ListItem>
       ))}
-    </List>
+    </List> : <p>There is no cast for this Film:(</p>
   );
 };
 
